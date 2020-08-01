@@ -1,0 +1,33 @@
+/* div{
+    padding-left: 300px;
+    padding-top:5px;
+} */
+
+.seller-dashboard {
+
+    margin-left:200px;
+
+}
+/* 
+.vl {
+    border-left: 6px solid #4B784B;
+    height: 300px;
+  } */
+
+  .card-style{
+    margin-top:100px;
+  }
+
+  .card-header{
+      color: white;
+      font-size: 20px;
+      background-color: #63A5E9
+  }
+
+  .brand-name{
+      color: white;
+      padding: 5px;
+      padding-left:36%; 
+      text-align: left;
+      background-color: rgba(4, 77, 72, 0.98);
+  }

@@ -1,0 +1,12 @@
+.chatbot{
+    position: fixed;
+    padding: 10px;
+    bottom: 50px;
+    right: 50px;
+}
+.modal {
+    position: fixed;
+    padding-top: 15%;
+    padding-left: 55%;
+  }
+

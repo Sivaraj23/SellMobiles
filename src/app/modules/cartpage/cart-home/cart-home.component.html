@@ -1,0 +1,65 @@
+<div class="container-fluid cart-home">
+  <div *ngIf="!isloadingCart">
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-6">
+        <div class="cart-heading">
+          <span><i class="fas fa-shopping-cart"></i> My Cart </span><span class="font-weight-light">({{cartItemCount}}
+            items)</span>
+        </div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2">
+      </div>
+      <div class="col-sm-6">
+        <div class="cart-item" *ngIf="isCartEmpty()">
+          <div *ngFor="let item of items">
+            <app-cart-item [item]="item"></app-cart-item>
+          </div>
+        </div>
+        <div class="empty-cart" *ngIf="!isCartEmpty()">
+          <img src="../../../../assets/cart/shopping-cart.png" alt="cart image" class="img-responsive">
+          <h4 class="text-center">Your cart is empty</h4>
+          <button class="btn btn-primary mx-auto place-order-button" (click)="continueShopping()">Continue Shopping</button>
+
+        </div>
+
+      </div>
+      <div class="col-sm-4">
+        <div class="price-detail" *ngIf="isCartEmpty()">
+          <div class="card">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item order-text"> Order Summary</li>
+              <hr>
+              <div *ngFor="let item of items">
+                <li class="list-group-item"><span class="text-secondary">{{item.productName}}</span>
+                  <span class="text-secondary right-shift"> <i class="fas fa-rupee-sign"></i>{{item.price}}</span>
+                </li>
+
+              </div>
+              <li class="list-group-item"><span> Total </span><span class="right-shift"><i class="fas fa-rupee-sign"></i>
+                  {{totalPrice}}</span></li>
+
+            </ul>
+
+            <button routerLink="checkout" class="btn btn-primary mx-auto place-order-button">Place Order</button>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+
+  </div>
+  <div *ngIf="isloadingCart">
+    <div align="center">
+      <mat-spinner></mat-spinner>
+      <h3>Loading Please wait......</h3>
+    </div>
+  </div>
+
+
+</div>

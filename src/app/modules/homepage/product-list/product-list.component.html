@@ -1,0 +1,39 @@
+<div class="products">
+
+  <div class="row">
+
+    <!-- List of products -->
+    <div class="product-list" *ngFor="let item of products ;let i = index" >
+<div *ngIf="i<5">
+      <!-- Product name -->
+      <div [routerLink]="['product',item.productId]">
+      <div class="product" matTooltip="{{item.brand.name}}">
+        <!-- product image -->
+        <div *ngIf="(item.image)">
+            <img src="data:image/jpeg;base64,{{item.image}}" class="rounded product-image"style="width:100px;height:160px;" alt="Uploaded">
+          </div>
+          <div *ngIf="!item.image">
+            <img src="url1" style="width:100px;height:160px;" alt="Uploaded Image1">
+          </div>
+       
+        <!-- info -->
+        <h5 class="info">{{item.brand.name}}</h5>
+        <div>
+          <span style="color:grey; font-size:12px">Starts from </span>
+          <i class="fas fa-rupee-sign" style="color:orangered"></i>&nbsp; <span class="price">{{item.price}}</span>
+        </div>
+
+
+
+      </div>
+
+    </div>
+    </div>
+    </div>
+  </div>
+  <div align="center" *ngIf="!isProductLoaded">
+    
+          <mat-spinner></mat-spinner><br>
+         
+        </div>
+</div>

@@ -1,0 +1,12 @@
+<!-- Admin page Sidebar -->
+<div class="sidebar shadow">
+
+
+    <a [ngClass]="{'act': actdashboard }" routerLink="dashboard" (click)="dashboard_css()"><i class="fas fa-bars"></i> Dashboard</a>
+    <a  [ngClass]="{'act': actseller }" routerLink="sellers" (click)="sellers_css()"><i class="fas fa-rupee-sign"></i>    Sellers</a>
+    <a [ngClass]="{'act': actcustomer }" routerLink="customers" (click)="customers_css()"><i class="fas fa-users"></i>  Customers</a>
+    <a [ngClass]="{'act': actreview }"  routerLink="reviews" (click)="reviews_css()"><i class="fas fa-edit"></i>  Feedback</a>
+
+    
+  </div>
+  

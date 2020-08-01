@@ -1,0 +1,128 @@
+<div class="row" style="padding-top: 60px;">
+  <div class="col-sm-3">
+  </div>
+  <div class="col-sm-8">
+
+
+
+    <div style="text-align:center" class="container-fluid">
+
+      <mat-card class="example-card" style="margin: left">
+        <form class="example-form" [formGroup]="addProductForm" (ngSubmit)="submit()">
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="sidebar">
+                
+
+                <img [src]="url1"  style="width:200px;height:200px;"> <br/>
+                <br/>
+                <br/>
+                <input type='file' (change)="onSelectFile($event)">
+                <br/>
+
+
+
+              </div>
+            </div>
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-7">
+
+
+              <h2>Add Product</h2>
+              <p>
+                <mat-form-field appearance="legacy">
+                  <mat-label>Brand Name</mat-label>
+                  <input  matInput placeholder="Brand Name" formControlName="brandName">
+                </mat-form-field>
+              </p>
+              <p>
+                <mat-form-field appearance="legacy">
+                  <mat-label>Brand Description</mat-label>
+                  <input matInput placeholder="Brand Description" formControlName="brandDescription">
+                </mat-form-field>
+              </p>
+              <p>
+                <mat-form-field appearance="legacy">
+                  <mat-label>Product Name</mat-label>
+                  <input matInput placeholder="Product Name" formControlName="productName">
+                </mat-form-field>
+              </p>
+              <p>
+                <mat-form-field appearance="legacy">
+                  <mat-label>Screen size in inches</mat-label>
+                  <input matInput placeholder="Screen Size" formControlName="screenSize">
+                </mat-form-field>
+              </p>
+              <p>
+                <mat-form-field appearance="legacy">
+                  <mat-label>Battery</mat-label>
+                  <input matInput placeholder="Battery in mAH" formControlName="battery">
+                </mat-form-field>
+              </p>
+              <p>
+                <mat-form-field appearance="legacy">
+                  <mat-label>Camera</mat-label>
+                  <input matInput placeholder="Camera" formControlName="camera">
+                </mat-form-field>
+              </p>
+              <p>
+                <mat-form-field appearance="legacy">
+                  <mat-label>Operating System</mat-label>
+                  <input matInput placeholder="Operating System" formControlName="operatingSystem">
+                </mat-form-field>
+              </p>
+
+              <p>
+                <mat-form-field appearance="legacy">
+                  <mat-label>Memory Speed</mat-label>
+                  <input matInput placeholder="Memory Speed" formControlName="speed">
+                </mat-form-field>
+              </p>
+              <p>
+
+                  <mat-form-field>
+                      <input matInput [max]="maxDate"[matDatepicker]="dp3"  placeholder="Enter date of original purchase" disabled>
+                      <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+                      <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+                    </mat-form-field>
+
+              </p>
+              
+              <p>
+                <mat-form-field appearance="legacy">
+                  <mat-label>Defects</mat-label>
+                  <input matInput placeholder="Defects" formControlName="defects">
+                </mat-form-field>
+              </p>
+              <p>
+                <mat-form-field appearance="legacy">
+                  <mat-label>Description</mat-label>
+                  <input matInput placeholder="Description" formControlName="description">
+                </mat-form-field>
+              </p>
+
+
+              <p>
+                <mat-form-field appearance="legacy">
+                  <mat-label><i class="fas fa-rupee-sign"></i>Price</mat-label>
+                  <input matInput placeholder="Price" formControlName="price">
+                </mat-form-field>
+              </p>
+
+              <button mat-raised-button color="primary"  [disabled]="addProductForm.invalid || buttonDisabled || loginDisabled" type="submit">Add Product</button>
+            </div>
+
+          </div>
+        </form>
+      </mat-card>
+
+    </div>
+
+
+
+  </div>
+  <div class="col-sm-4">
+  </div>
+
+</div>

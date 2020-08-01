@@ -1,0 +1,27 @@
+<mat-card style="margin-left:200px;">
+<div>
+   
+
+    <table *ngIf="feedbacks.length>0" class="table table-hover">
+            
+             <tr>
+               <th>
+                 Feedback description
+               </th>
+               <th>
+                  User Id
+                 </th>
+                 <th>
+                 User Name
+                 </th>
+                 <tr *ngFor="let feedback of feedbacks">
+                   <td> {{feedback.description}}</td>
+                   <td> {{feedback.user.usersId}}</td>
+                   <td>{{feedback.user.userName}}</td>
+               
+             </tr>
+           </table>
+
+    
+</div>
+</mat-card>

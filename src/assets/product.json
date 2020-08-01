@@ -1,0 +1,56 @@
+[
+    {
+        "productId": 1,
+        "user": {
+
+        },
+        "productName":"Samsung Guru 4420",
+        "brand":{
+
+        },
+        "screenSize": "4.6",
+        "battery": "2000 mAH",
+        "camera": "2.7 MP",
+        "memorySpeed": "1.2 GHz",
+        "defects": "No defects",
+        "price": "2000",
+        "purchaseDate": "12-12-2018",
+        "updateDate": "14-01-2019"
+    },
+    {
+        "productId": 2,
+        "user": {
+
+        },
+        "productName":"MI Note 4",
+        "brand":{
+
+        },
+        "screenSize": "5.5",
+        "battery": "4000 mAH",
+        "camera": "13 MP",
+        "memorySpeed": "2.1 GHz",
+        "defects": "No defects",
+        "price": 7000,
+        "purchaseDate": "12-12-2018",
+        "updateDate": "14-01-2019"
+    },
+    {
+        "productId": 3,
+        "user": {
+
+        },
+        "productName":"Apple X",
+        "brand":{
+
+        },
+        "screenSize": "6.0",
+        "battery": "4000 mAH",
+        "camera": "18 MP",
+        "memorySpeed": "2.1 GHz",
+        "defects": "No defects",
+        "price": 70000,
+        "purchaseDate": "12-12-2018",
+        "updateDate": "14-01-2019"
+    }
+]

@@ -1,0 +1,39 @@
+<div class="seller-dashboard">
+  <div *ngIf="!show" align="center">
+    <mat-spinner></mat-spinner>
+    <h4>Loading Seller dashboard!!!! Please wait...</h4>
+  </div>
+  <mat-card *ngIf="show">
+    <h3>Orders count based on Brand</h3>
+    <hr>
+
+    <div class="row">
+      <div class="col-md-3 col-md-offset-1 card-style"  align="center">
+          <div class="card" style="width: 18rem;">
+              <div class="card-header">
+                   Info
+              </div>
+              <ul class="list-group list-group-flush brand-name">
+                  <span *ngFor = "let a of brandSizeItr; let i = index">
+                      {{pieChartLabels[i]}} - {{pieChartData[i]}}
+                  </span>
+              </ul>
+            </div>
+
+        
+      </div>
+      <!-- <div class="vl"></div> -->
+      <div class="col-md-7">
+        <canvas 
+          baseChart width="900" height="400" 
+          [data]="pieChartData" 
+          [labels]="pieChartLabels" 
+          [chartType]="pieChartType" 
+          [colors]="pieColors"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)">
+        </canvas>
+      </div>
+    </div>
+  </mat-card>
+</div>

@@ -1,0 +1,67 @@
+<div align="center" style="margin-top: 230px;" *ngIf="!loadChart">
+  <mat-spinner>
+  </mat-spinner>
+  <h3>Loading chart...Please wait..</h3>
+</div>
+<div *ngIf="loadChart" style="margin-left: 70px;">
+  <!-- <div class="content">  -->
+
+
+  <!-- <div class="row"> -->
+  <div class="container" style="width:auto; ">
+    <div class="row">
+      <div class="col-md-3" style="padding-right: 0px;padding-bottom: 0px;margin-top: 150px;  ">
+
+     
+
+      </div>
+      <div class="col-md-9" style="padding-left: 0px;">
+        <mat-card style="padding-left: 0px;margin-top: 50px">
+          <h3>States</h3>
+          <hr>
+
+        <div class="row">
+
+          <div class="col">
+          <div class="chart" *ngIf="showChart" >
+            <canvas baseChart width="300" height="300" [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" [colors]="pieChartColors"
+              [legend]="pieChartLegend" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+            </canvas>
+
+          </div>
+          </div>
+          <div class="col">
+          <mat-card style="overflow-y:auto; width:auto; height:300px;">
+              <h3>Info</h3>
+              <hr>
+              <div *ngFor="let states of map">
+    
+                {{states.state }} {{states.no}}
+    
+              </div>
+            </mat-card>
+          </div>
+          </div>
+        </mat-card>
+      </div>
+
+    </div>
+
+
+    <div class="row">
+
+      <mat-card>
+        <h3>User count based on Month</h3>
+        <hr>
+        <div class="chart" *ngIf="monthChartData.length">
+          <canvas baseChart width="1200" height="300" [datasets]="monthChartData" [labels]="monthChartLabels" [chartType]="monthChartType"
+            [options]="monthChartOptions" [colors]="monthChartColors" [legend]="monthChartLegend" (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)">
+          </canvas>
+        </div>
+      </mat-card>
+    </div>
+
+    <!-- </div>  -->
+  </div>
+</div>

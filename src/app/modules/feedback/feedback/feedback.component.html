@@ -1,0 +1,61 @@
+<!-- <br><br><br><br><br><br><br><br><br><br> -->
+<mat-card style="width:1000px;margin-left:230px;margin-top:190px">
+  <div>
+    <h4>Successfully Purchased.....Leave a feedback for us...</h4>
+  </div>
+
+
+  <div class="container">
+    <!-- <h2>Modal Example</h2> -->
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Feedback Us</button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Feedback Us</h4>
+          </div>
+          <div class="modal-body">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-12">
+
+                  <mat-card class="example-card">
+                    <div class="container">
+                      <div class="row">
+                    <form class="col-md-9 go-right" [formGroup]="postFeedbackForm" (ngSubmit)="submit()">
+
+                          <div class="form-group">
+
+                            <textarea id="description" name="description" formControlName="description"></textarea>
+                            <label for="description">Description</label>
+                          </div>
+                          <button mat-raised-button color="primary"   type="submit">submit</button>
+                          
+                  </form>
+                      </div>
+                    </div>
+
+                  </mat-card>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+            
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</mat-card>

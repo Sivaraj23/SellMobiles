@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body {
+    overflow-x: hidden;
+}
+
+.ngsm-button{
+    border-radius:50px; 
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.ngsm-button-view{
+    border-radius:50px; 
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: green;
+}

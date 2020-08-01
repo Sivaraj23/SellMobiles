@@ -1,0 +1,262 @@
+
+ 
+<div *ngIf="!isloadingData">
+
+  <!-- Chart display -->
+  <div class="content">
+      <nav aria-label="breadcrumb">
+         <h2> Admin Dashboard</h2>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a routerLink="/admin">Admin</a></li>
+            <!-- <li class="breadcrumb-item"><a href="#">Profile</a></li> -->
+            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+          </ol>
+        </nav>
+      
+      <div class="row" style="padding-bottom:50px;">
+        <!-- <div *ngIf="boolspin">
+        <mat-progress-spinner
+        [color]="color"
+        [mode]="mode"
+        [value]="value">
+    </mat-progress-spinner>
+      </div> -->
+
+
+        <mat-card style="padding-right:50px;">
+          <h3>Users based on type</h3>
+          <hr>
+          <div class="row" *ngIf="userChartData.length">
+            <div class="chart" *ngIf="userChartData.length">
+
+              <canvas baseChart width="300" height="300" [data]="userChartData" [labels]="userChartLabels" [options]="userChartOptions"
+                [colors]="userChartColors" [legend]="userChartLegend" [chartType]="userChartType" (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+            </div>
+
+            <mat-card class="shadow"  style="overflow-y:auto; width:200; height:300px;">
+              <h4>Info</h4>
+              <hr>
+              <div   class="row">
+                  <div class="col" >
+                      <div *ngFor="let item of userchartcolors;let i=index">
+                        <div *ngIf="i < userChartLabels.length">
+                        <div ngclass="text-right" [ngStyle]="{'color': item}">
+                         <i class="fas fa-user"></i><br>
+                        </div>  
+                      </div>
+                      </div>
+                    </div>
+                <div class="col" >
+                  <div *ngFor="let item of userChartLabels">
+                    <div class="text-center" >
+                      <b>{{item}}</b>&nbsp;=<br>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <div *ngFor="let item of  userChartData">
+                    <div class="row">
+                      {{item}}<br>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </mat-card>
+          </div>
+          <div width="300" height="300" *ngIf="userChartData.length==0">
+
+            <h3>Internal server Error...</h3>
+
+          </div>
+
+        </mat-card>
+
+        <div style="padding-left:50px;">
+
+      <mat-card style="padding-right:50px;">
+        <h3>Sellers</h3>
+        <hr>
+        <div class="row" *ngIf="sellerChartData.length">
+          <div class="chart" *ngIf="sellerChartData.length">
+            <canvas baseChart width="300" height="300" [data]="sellerChartData" [labels]="sellerChartLabels" [options]="sellerChartOptions"
+              [colors]="sellerChartColors" [legend]="sellerChartLegend" [chartType]="sellerChartType" (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+          </div>
+
+          <mat-card class="shadow" style="overflow-y:auto; width:auto; height:300px;">
+              <h4>Info</h4>
+              <hr>
+              <div class="row" >
+                  <div class="col" >
+                      <div *ngFor="let item of sellerchartcolors;let i=index">
+                        <div *ngIf="i < sellerChartLabels.length">
+                        <div ngclass="text-right" [ngStyle]="{'color': item}">
+                         <i class="fas fa-user"></i><br>
+                        </div>  
+                      </div>
+                      </div>
+                    </div>
+                <div class="col">
+                  <div *ngFor="let item of sellerChartLabels">
+                    <div class="text-right">
+                      {{item}}&nbsp;=&nbsp;<br>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <div *ngFor="let item of  sellerChartData">
+                    <div class="row">
+                      {{item}}<br>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </mat-card>
+          <div width="300" height="300" *ngIf="sellerChartData.length==0">
+
+            <h3 >Internal server Error...</h3>
+
+          </div>
+
+
+        </div>
+
+
+      </mat-card>
+        </div>
+      </div>
+      <div class="row">
+      <mat-card style="padding-right:50px;">
+        <h3>Feedbacks</h3>
+        <hr>
+        <div class="row" *ngIf="sellerChartData.length">
+          <div class="chart" *ngIf="reviewsChartData.length">
+            <canvas baseChart width="300" height="300" [data]="reviewsChartData" [labels]="reviewsChartLabels" [options]="reviewsChartOptions"
+              [colors]="reviewsChartColors" [legend]="reviewsChartLegend" [chartType]="reviewsChartType" (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+          </div>
+          
+          <mat-card class="shadow" style="overflow-y:auto; width:auto; height:300px;">
+              <h4>Info</h4>
+              <hr>
+              <div class="row" >
+                  <div class="col" >
+                      <div *ngFor="let item of reviewschartcolors;let i=index">
+                        <div *ngIf="i < reviewsChartLabels.length">
+                        <div ngclass="text-right" [ngStyle]="{'color': item}">
+                         <i class="fas fa-user"></i><br>
+                        </div>  
+                      </div>
+                      </div>
+                    </div>
+                <div class="col">
+                  <div *ngFor="let item of reviewsChartLabels">
+                    <div class="text-right">
+                      {{item}}&nbsp;=&nbsp;<br>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <div *ngFor="let item of  reviewsChartData">
+                    <div class="row">
+                      {{item}}<br>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </mat-card>
+          <div width="300" height="300" *ngIf="reviewsChartData.length==0">
+
+            <h3>Internal server Error...</h3>
+
+          </div>
+        </div>
+      </mat-card>
+    <div style="padding-left:50px;">
+      <mat-card style="padding-right:50px;">
+        <h3>Reviews</h3>
+        <hr>
+        <div class="row" *ngIf="sellerChartData.length">
+          <div class="chart" *ngIf="somethingChartData.length">
+            <canvas baseChart width="300" height="300" [data]="somethingChartData" [labels]="somethingChartLabels" [options]="somethingChartOptions"
+              [colors]="somethingChartColors" [legend]="somethingChartLegend" [chartType]="somethingChartType" (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+          </div>
+          
+          <mat-card class="shadow" style="overflow-y:auto; width:auto; height:300px;">
+              <h4>Info</h4>
+              <hr>
+              <div class="row" >
+                  <div class="col" >
+                      <div *ngFor="let item of somethingchartcolors;let i=index">
+                        <div *ngIf="i < somethingChartLabels.length">
+                        <div ngclass="text-right" [ngStyle]="{'color': item}">
+                         <i class="fas fa-user"></i><br>
+                        </div>  
+                      </div>
+                      </div>
+                    </div>
+                <div class="col">
+                  <div *ngFor="let item of somethingChartLabels">
+                    <div class="text-right">
+                      {{item}}&nbsp;=&nbsp;<br>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <div *ngFor="let item of  somethingChartData">
+                    <div class="row">
+                      {{item}}<br>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </mat-card>
+          <div width="300" height="300" *ngIf="somethingChartData.length==0">
+
+            <h3>Backend Data Error...</h3>
+
+          </div>
+        </div>
+      </mat-card>
+    </div>
+      </div>
+
+
+      <!-- <div class="col-md-6" style="margin-bottom: 10px">
+      <table class="table table-responsive table-condensed">
+        <tr>
+          <th *ngFor="let label of lineChartLabels">{{label}}</th>
+        </tr>
+        <tr *ngFor="let d of lineChartData">
+          <td *ngFor="let label of lineChartLabels; let j=index">{{d && d.data[j]}}</td>
+        </tr>
+      </table>
+      <button (click)="randomize()">CLICK</button>
+    </div> -->
+    
+    <br>
+    <hr class="shadow"><br>
+
+    <!-- <h1>People's Love <i class="fas fa-heart text-success" ></i></h1>
+<br>
+<br>
+  <div class="container">
+  <admin-dashboard-feedbackdisp [feedback]="feedback">
+    </admin-dashboard-feedbackdisp>  
+  </div>   -->
+
+
+
+  </div>
+</div>
+<div class="content"align="center" *ngIf="isloadingData">
+
+  <mat-spinner></mat-spinner><br>
+  <h3>Loading Charts.. Please wait...</h3>
+</div>

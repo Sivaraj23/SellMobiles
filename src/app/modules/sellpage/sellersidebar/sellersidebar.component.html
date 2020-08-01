@@ -1,0 +1,20 @@
+<!-- Sidebar -->
+<!-- <div class="sidebar shadow">
+ 
+  <a routerLink="addProduct">Add Product</a>
+  <a href="#orders">Orders</a>
+
+</div> -->
+
+<div class="sidebar shadow">
+  
+    <a [ngClass]="{'act': actdashboard }" routerLink="dashboard" (click)="dashboard_css()"><i class="fas fa-bars"></i> Dashboard</a>
+      
+    <a [ngClass]="{'act': actorders }" routerLink="orders" (click)="orders_css()"><i class="fab fa-first-order"></i> Orders</a>
+  
+    <a [ngClass]="{'act': actproducts }" routerLink="addProduct" (click)="products_css()"><i class="fab fa-product-hunt"></i> Add Products</a>
+  
+    <a [ngClass]="{'act': actsales }" routerLink="sales" (click)="sales_css()"><i class="fas fa-shopping-cart"></i> Sales</a>
+    
+  </div>
+

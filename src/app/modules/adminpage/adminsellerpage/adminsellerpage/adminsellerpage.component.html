@@ -1,0 +1,39 @@
+<div class="container">
+<div class="row">
+    <div *ngIf="show" class="col-md-12">
+      <div align="center" style="height:1500px;">
+        <mat-spinner></mat-spinner>
+        <h3>Loading..........</h3>
+      </div> 
+    </div>
+</div>  
+<div class="row" *ngIf="!show" >
+ 
+          <mat-card class="col-md-4">
+             
+                  <h4>Info</h4>
+                  <hr>
+                  <div *ngFor="let item of map">
+                    <div class="row">
+                        <div class="col">
+                           {{item.state}}&nbsp;&nbsp;-{{item.no}}
+                        </div>
+                    </div>
+                  
+                  
+                  </div>
+                  
+           </mat-card> 
+             
+             <mat-card class="col-md-8">
+               <canvas baseChart 
+                        [data]="doughnutChartData"
+                        [labels]="doughnutChartLabels"
+                        [chartType]="doughnutChartType"
+                        [colors]="doughnutColors"
+                        (chartHover)="chartHovered($event)"
+                         (chartClick)="chartClicked($event)">
+              </canvas>
+         </mat-card>
+  </div>     
+</div>

@@ -1,0 +1,113 @@
+<div class="row" style="padding-top: 100px;">
+  <div class="col-1">
+
+  </div>
+  <div class="col-10">
+
+    <div *ngIf="getProduct">
+
+
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-12">
+            <br>
+            <mat-card class="example-card">
+              <div class="row">
+                <div class="col-sm-3" style="padding-top: 70px; padding-left: 30px;" >
+                  <div *ngIf="(product.image)">
+                    <img mat-card-image src="data:image/jpeg;base64,{{product.image}}" style="width:200px;height:320px;" alt={{product.productName}}>
+                  </div>
+                  <div *ngIf="!product.image">
+                    <img mat-card-image src="url1" style="width:200px;height:320px;"alt={{product.productName}}>
+                  </div>
+                  
+
+              
+                
+
+                </div>
+
+
+                <div class="col-sm-1">
+                </div>
+                <div class="col-sm-8">
+                  <!-- Model Name:  -->
+                  <!-- Id:{{product.productId}}<br> -->
+                  <h3> {{product.productName}} </h3>
+                  3.5<i class="fas fa-star"></i><br>
+
+                  <h2 style="color:red;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+                  <br> <i class="fas fa-rupee-sign"></i>{{product.price}}<br></h2>
+
+
+                  <br>
+                  <li>Camera:{{product.camera}}</li>
+                  <li>Memory Speed:{{product.memorySpeed}}</li>
+                  <li>Operating System:{{product.operatingSystem}}</li>
+                  <li>Screen Size:{{product.screenSize}} inches</li>
+                  <li>Battery Power:{{product.battery}}</li>
+                 
+                  <br>
+                  <br>
+
+                  <button mat-raised-button  [disabled]="buttonDisabled" class="btn btn-warning text-white" (click)="addToCart()">Add to Cart</button>&nbsp;&nbsp;
+                  <button routerLink='/feedback' [disabled]="buttonDisabled" mat-raised-button class="btn btn-success">Buy Now</button>
+                  <br>
+                  <br>
+                  <br>
+
+
+
+                </div>
+
+
+              </div>
+
+            </mat-card>
+          </div>
+
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-sm-12">
+
+          <mat-card class="example-card">
+            <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
+              <!-- <mat-tab label="DESCRIPTION"><br>
+              <ul style="list-style-type:disc">
+                <li></li>
+
+
+              </ul>
+
+
+            </mat-tab> -->
+              <mat-tab label="DESCRIPTION"><br> Description: {{product.description}}
+                <br>
+                <br> Defects:{{product.defects}}
+
+
+              </mat-tab>
+              <mat-tab label="REVIEWS" *ngIf="show">
+                  <div *ngFor="let review of productReview">
+                    <i class="far fa-user"></i>
+                   <b>{{review.userName}}</b><br>
+                    <span>{{review.description}}</span>
+                  </div>  
+              </mat-tab>
+            </mat-tab-group>
+           
+          </mat-card>
+          <form class="shadow-textarea" [formGroup]="reviewForm">
+            <textarea class="form-control z-depth-1 comment" formControlName="description" id="exampleFormControlTextarea6" rows="3" placeholder="Write something here..." required></textarea>
+          </form>
+    
+          <button type="button" (click)="onReply()"class="btn btn-success postReview">Post</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <router-outlet></router-outlet>

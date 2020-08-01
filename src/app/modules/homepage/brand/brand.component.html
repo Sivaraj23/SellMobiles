@@ -1,0 +1,20 @@
+<div class="homepage-brands">
+  <div class="container">
+
+    <div class="row">
+      <div class="brand-list" *ngFor="let brand of logoSlides">
+
+        <div class="card" style="border:none">
+          <a class="brand-link" routerLink="">
+            <img [src]="brand.url" class="rounded" height="100" width="130" matTooltip="{{brand.info}}">
+            
+          </a>
+          <br>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

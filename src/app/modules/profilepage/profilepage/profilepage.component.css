@@ -1,0 +1,140 @@
+.container{
+  margin-top: 25px;
+}
+
+/* To Remove Line of TextField */
+::ng-deep .mat-form-field-underline {
+  display: none;
+}
+/* ::placeholder { 
+  color: red;
+  opacity: 1; 
+} */
+/* md-input-container label {
+  color: red;
+} */
+.mat-focused .placeholder {
+  color: blue;
+}
+.placeholder{
+  color: black;
+}
+
+/* The side navigation menu */
+.sidebar {
+  margin: 0;
+  
+  padding-top: 70px;
+  width: 200px;
+  background-color: #FFFFFF;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+
+.act{
+  background-color: #36A25C;
+  font-size: 20px;
+  color: white;
+}
+
+/* Sidebar links */
+.sidebar a {
+  display: block;
+  /* color: grey; */
+  border-radius: 0px 50px 50px 0px;
+  padding: 16px;
+  text-decoration: none;
+}
+
+/* Active/current link */
+/* .sidebar a.active {
+  background-color: #36A25C;
+  font-size: 20px;
+  color: white;
+} */
+
+/* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+  background-color: white;
+  font-size: 20px;
+  color: green;
+}
+
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 817px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
+
+
+.hidden {
+  white-space: nowrap; 
+  width: 100%; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+  /* line-height: 10px; */
+  pointer-events:none;
+}
+
+.hidden:after {
+  content:"";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 100px;
+  z-index: 1;
+  pointer-events:initial;
+}
+
+.hidden:hover:after{
+  cursor: pointer;
+}
+
+.tooltip {
+  width: 220px;
+  visibility: hidden;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 50px 0 rgba(0,0,0,0.3);
+  /* box-shadow: 0 0 4px rgba(0,0,0,.15); */
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.hide{
+  visibility: hidden;
+}
+.edit{
+  cursor: pointer;
+}
+.hidden:hover + .tooltip {
+  visibility: visible;
+  transition: opacity 0.5s ease;
+  opacity: 1;
+}

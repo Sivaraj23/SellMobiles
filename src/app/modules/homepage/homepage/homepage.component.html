@@ -1,0 +1,91 @@
+<!-- <button (click)="loader()" value="loader on/off"></button> -->
+<div class="home-content">
+
+    <!-- Corousel appears here -->
+    <div class="home-carousel">
+        <homepage-carousel></homepage-carousel>
+    </div>
+
+
+
+    <!-- This are displays list of new products inside cards -->
+    <div>
+        <div class="new-arrivals mat-card">
+            <mat-toolbar>
+                <span><i class="far fa-clock"></i> New Arrivals</span>
+                <span class="toolbar-spacer"></span>
+                <!-- Explore button opens the list of products  -->
+                <button routerLink='products' class="view-button btn btn-primary">Explore <i class="fas fa-angle-double-right"></i></button>
+            </mat-toolbar>
+            <!-- <div class="new-arrivals-cover">
+                <div class="description">
+                    <h3 style="color:white">
+                        Explore the latest arrivals <br>from different sellers ..
+                    </h3>
+                    <button class="view-button btn btn-primary">
+                        Explore <i class="fas fa-angle-double-right"></i>
+                    </button>
+                </div>
+            </div> -->
+
+
+            <!-- List of products - new arrivals -->
+            <div>
+                <ngsm-new-arrival></ngsm-new-arrival>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="product-brands mat-card">
+        <!-- <mat-toolbar>
+            <span><i class="fas fa-bold"></i>rands</span>
+            <span class="toolbar-spacer"></span>
+            <button class="view-button btn btn-primary">Explore <i class="fas fa-angle-double-right"></i></button>
+        </mat-toolbar> -->
+        <div class="row">
+
+            <div class="col-md-6">
+                <div>
+                    <homepage-brand></homepage-brand>
+                    <div class="description">
+                        <h3 style="color:white">
+                            Check out your <br>favorite brands ..
+                        </h3>
+                        <button class="view-button btn btn-primary">
+                            Explore <i class="fas fa-angle-double-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="brand-cover">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+    <div class="products-list mat-card">
+        <mat-toolbar>
+            <span><i class="fas fa-mobile-alt"></i>&nbsp;Mobiles</span>
+            <span class="toolbar-spacer"></span>
+            <button class="view-button btn btn-primary">Explore <i class="fas fa-angle-double-right"></i></button>
+        </mat-toolbar>
+        <div>
+            <homepage-product-list></homepage-product-list>
+        </div>
+    </div>
+    <div>
+        <app-testimonial></app-testimonial>
+    </div>
+</div>
+
+
+
+
+<ngsm-footer></ngsm-footer>

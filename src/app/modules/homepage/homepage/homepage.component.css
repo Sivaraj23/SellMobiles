@@ -1,0 +1,132 @@
+.home-content {
+
+    margin: 0px;
+}
+
+.home-carousel {
+   
+}
+
+.mat-toolbar {
+    /* background-color: #024186; */
+    /* For browsers that do not support gradients */
+    background-color: red; 
+    background-image: linear-gradient(to right, red , #150f00);
+    color: white;
+    
+
+}
+
+.new-arrivals .mat-toolbar {
+    /* background-color: #024186; */
+    /* For browsers that do not support gradients */
+    /* background-color: red; 
+    background-image: linear-gradient(to right, red , #150f00); */
+    height:40px;
+    font-size: 24px;
+    color: black;
+    background-color: #44413c;
+    background-image:linear-gradient(to right,#150f00,#d2e8ff );
+    
+}
+
+.product-brands .mat-toolbar {
+    /* background-color: #024186; */
+    background-color:#37474F; /* For browsers that do not support gradients */
+    background-image: linear-gradient(to right, #37474F , #d2e8ff);
+    color: white;
+    font-size: 24px;
+    
+}
+
+.products-list .mat-toolbar{
+    background-color: #37474F; /* For browsers that do not support gradients */
+    background-image: linear-gradient(to right, #088c26  , #f1b913);
+    color: white;
+    font-size: 24px;
+}
+.mat-toolbar .view-button {
+    /* background-color: #0069d9; */
+    background-color: #e40303;
+    color: white;
+    border:none;
+    border-color: none;
+}
+
+.mat-toolbar .view-button:hover {
+    /* background-color: #0069d9; */
+    background-color: #fb1707;
+    color: white;
+    border:none;
+    border-color: none;
+}
+.toolbar-spacer{
+    
+    flex: 1 1 auto;
+     
+}
+
+.new-arrivals-cover {
+    background : url("../../../../assets/phones/wallpaper_3.jpg");
+    background-position: center;
+    height: 500px; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.new-arrivals-cover .description {
+    float:right;
+    margin-top:100px;
+    padding:50px; 
+    background-color: #000000ad;
+}
+
+.brand-cover {
+    background : url("../../../../assets/phones/wallpaper_1.jpg");
+    background-position: center;
+    height: 500px; 
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.product-brands .description {
+    float:right;
+    margin-top:-200px;
+    padding:50px; 
+    background-color: #000000;
+}
+
+
+.view-button {
+    /* background-color: #0069d9; */
+    background-color: #e40303;
+    color: white;
+    border:none;
+    border-color: none;
+}
+
+.view-button:hover {
+    /* background-color: #0069d9; */
+    background-color: #fb1707;
+    color: white;
+    border:none;
+    border-color: none;
+}
+
+@media only screen and (max-width: 789px) {
+
+    .product-brands .description {
+        float:right;
+        margin-top:0px;
+        padding:10px; 
+        background-color: #000000;
+    }
+    
+}
+
+span{
+    color:white;
+}
+

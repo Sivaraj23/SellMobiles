@@ -1,0 +1,35 @@
+.container-fluid {
+    box-shadow: 0 2px 2px 0 rgba(20, 19, 19, 0.20), 0 2px 4px 0px rgba(37, 35, 35, 0.19);
+    padding: 24px;
+   
+    position: relative;
+}
+
+.item-count-text {
+    width: 56px;
+    height: 38px;
+    text-align: center;
+    margin: 0px 8px 0px 8px;
+    padding: 6px 12px 6px 12px;
+    background: white;
+    color: black;
+    border-radius: 4px;
+}
+
+.remove {
+    margin-right: 8px;
+}
+
+.mobile-image {
+    max-width: 150px;
+    max-height: 100px;
+}
+
+.delete-icon {
+    cursor: pointer;
+    color: red;
+}
+
+.item-detail-name {
+    font-weight: 550;
+}

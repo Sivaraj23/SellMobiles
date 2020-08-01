@@ -1,0 +1,11 @@
+.ngsm-body-login{
+
+    background-image: url('/assets/others/bg.jpg');
+    background-size: cover;
+
+}
+
+
+.visibility{
+    cursor:pointer;
+}

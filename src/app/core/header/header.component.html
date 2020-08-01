@@ -1,0 +1,143 @@
+The content below is only a placeholder and can be replaced.
+<!-- <mat-toolbar class>
+  <div class="container-fluid">
+    <div class="row">
+      <button mat-button class="logo" class="col-2">
+    <h2>
+      <b>Sell Mobiles</b>
+    </h2>
+  </button>
+      <mat-select placeholder="Products" class="col-1">
+        <mat-option>
+          product 1
+        </mat-option>
+        <mat-option>
+          product 2
+        </mat-option>
+        <mat-option>
+          product 3
+        </mat-option>
+        <div class="col-1"></div>
+      </mat-select>
+    
+<div class="col-4">
+      <input matInput class=" rounded col-11" placeholder="Search">
+      <button mat-button>
+        <h2>
+          <b>S</b>
+        </h2>
+      </button>
+    
+</div>
+
+      <mat-select placeholder="Location" class="col-2">
+        <mat-option>
+          product 1
+        </mat-option>
+        <mat-option>
+          product 2
+        </mat-option>
+        <mat-option>
+          product 3
+        </mat-option>
+      </mat-select>
+
+
+      <button mat-button class="col-1">
+            <h2>
+              <b>Sell</b>
+            </h2>
+          </button>
+      <div class="col-1">
+        <button mat-button>
+                  <h2>
+                    <b>C</b>
+                  </h2>
+                </button>
+        <button mat-button>
+                    <h2>
+                      <b>Login</b>
+                    </h2>
+                  </button>
+      </div>
+
+    </div>
+  </div>
+
+
+</mat-toolbar>
+<router-outlet></router-outlet>  -->
+
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top content" style="resize: no-resize;" id ="nav-head">
+  <button class="btn logo col-0" routerLink="/home"><h3>Sell Mobiles</h3></button>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  <div class="collapse navbar-collapse col-9" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto col-12">
+     <li class="col-1">
+     </li>
+      <li class="nav-item  dropdown col-2">
+        <button class="btn btn-outline-success text-white  my-2 my-sm-0 round  " (click)="productList()" id="navbarDropdown" role="button" 
+          aria-expanded="false">
+                Products
+      </button>
+       
+   
+      </li>
+    
+      <li class="nav-item col-6">
+        <form class="form-inline my-2 my-lg-0" [formGroup]="form">
+          
+          <input class="form-control mr-sm-2 round searchbar " type="search" placeholder="Search" aria-label="Search" formControlName="searchbar" >
+          <button class="btn btn-outline-success text-white  my-2 my-sm-0 round" (click)="search()" type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </li>
+   
+      <li class="nav-item col-1">
+        <button class="btn btn-outline-success text-white  my-2 my-sm-0 round"   (click)="sellCheck()" ><i class="fas fa-check-circle"></i> Sell</button>
+      </li>
+      <li class="col-1">
+
+      </li>
+      <li class="nav-item col-1">
+       
+              <button class="btn btn-outline-success text-white  my-2 my-sm-0 round "  routerLink="cart" type="submit"><span matBadge="{{cartItemCount}}" matBadgeOverlap="false">
+                  <i class="fas fa-shopping-cart"></i>
+                </span></button>
+            
+          
+             
+      </li>
+      <li class="nav-item">
+          <!-- <button class="btn btn-outline-success my-2 my-sm-0 round" type="submit">Search</button> -->
+          <button type="button"  (click)="login()" *ngIf="!logincheck.getLogin()" class="btn btn-outline-success text-white  my-2 my-sm-0 round"> Login <span *ngIf="log"><i class="fas fa-cog fa-spin"></i></span>
+          </button>
+         
+          <!-- <a routerLink="/profile" *ngIf="logincheck.getLogin()" class="email"><i class="far fa-user"></i>{{name}} </a> -->
+          <div class=" dropdown col-1" *ngIf="logincheck.getLogin()">
+              <a class="nav-link dropdown-toggle text text-white " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false" *ngIf="logincheck.getLogin()">
+                <i class="far fa-user"></i>{{name}}
+                    </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item text-dark" routerLink="/profile">Profile</a>
+                <a class="dropdown-item text-dark" (click)="logout('google')"  href="#" id="logout">Logout</a>
+                <!-- <button type="button" (click)="logout()" class="btn btn-outline-success my-2 my-sm-0 round" *ngIf="logincheck.getLogin()">logout</button> -->
+              </div>
+            </div>
+      </li>
+
+    </ul>
+    
+  </div>
+</nav>
+
+<div style="padding-top : 47px;"></div>
+<ngsm-loader></ngsm-loader>
+<!-- 
+<router-outlet></router-outlet> -->

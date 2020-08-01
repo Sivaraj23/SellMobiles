@@ -1,0 +1,328 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-2" style="margin-left: 0;padding-left: 0;">
+
+      <div class="sidebar shadow" *ngIf="check" style="text-align: center">
+        <!-- routerLink="/profile" -->
+        <p> <img style="height: 80px; padding: 0;margin-bottom: 0;" src="../../../../assets/others/images.png" alt="..." class="rounded-circle"></p>
+        <label class="hidden"><strong style="color: blue">{{username}}</strong></label>
+        <div class='tooltip'>{{username}}</div>
+        <div style="text-align: left;margin-top: 10px;">
+          <a [ngClass]="{'act': actprofile }" routerLink="" (click)="orders_css()"><i class="fas fa-user"></i>  Profile</a>
+          <a [ngClass]="{'act': actorders }" routerLink="" (click)="orders_css()"><i class="fas fa-shopping-cart"></i> Orders</a>
+          <a [ngClass]="{'act': actsales }" routerLink="" (click)="sales_css()"><i class="fas fa-tags"></i>  Sales</a>
+          <a [ngClass]="{'act': actreview }" routerLink="" (click)="reviews_css()"><i class="fas fa-edit"></i>  Reviews</a>
+        </div>
+
+      </div>
+      <div class="sidebar shadow" *ngIf="!check" style="text-align: center">
+        <!-- routerLink="/profile" -->
+        <p> <img style="height: 80px; padding: 0;margin-bottom: 0;" src="../../../../assets/others/images.png" alt="..." class="rounded-circle"></p>
+        <label class="hidden"><strong style="color: blue">{{username}}</strong></label>
+        <div class='tooltip'>{{username}}</div>
+        <div style="text-align: left;margin-top: 10px;">
+          <a [ngClass]="{'act': actprofile }" routerLink="" (click)="orders_css()"><i class="fas fa-user"></i>  Profile</a>
+          <a [ngClass]="{'act': actorderdetails }" routerLink="" (click)="orderdetails_css()"><i class="fas fa-shopping-cart"></i>  OrderDetails</a>
+          <a [ngClass]="{'act': actwishlist }" routerLink="" (click)="wishlist_css()"><i class="fab fa-gratipay"></i> Wishlist </a>
+          <a [ngClass]="{'act': actreview }" routerLink="" (click)="reviews_css()"><i class="fas fa-edit"></i>  Reviews</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-8" style="margin-top: 30px;">
+
+
+      <div align="center" *ngIf="loader" style="margin-top: 50px;">
+        <mat-spinner> </mat-spinner>
+        <h3>Loading Profile....</h3>
+      </div>
+
+      <div *ngIf="!loader">
+        <mat-tab-group>
+          <mat-tab label="UserDetails">
+            <mat-card>
+              <div class="container-fluid">
+                <form class="example-form " [formGroup]="profileForm" (ngSubmit)="submit()">
+                  <div class="row">
+
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-5">
+
+                      <mat-label> <strong>Personal details:</strong></mat-label><br>
+                      <i class="fas fa-user" style="margin-right: 10px; margin-bottom: 12px;"> </i>
+                      <mat-form-field class="example-full-width" style="margin-top: 20px;">
+
+                        <label class="hidden">{{this.profile.userName}} </label>
+                        <div class='tooltip'>
+                          {{this.profile.userName}}
+                        </div>
+                        <input class="hide" matInput type="text" formControlName="name" readonly="readonly" value="{{this.profile.userName}}">
+                        <mat-placeholder class="placeholder" style="color: blue">Name</mat-placeholder>
+
+                      </mat-form-field>
+                      <br>
+                      <br>
+                      <mat-label> <strong>Email: </strong></mat-label><br>
+                      <i class="fas fa-envelope" style="margin-right: 10px; margin-bottom: 10px"></i>
+                      <mat-form-field class="example-full-width" style="margin-top: 20px;">
+                        <label class="hidden">{{this.profile.email}} </label>
+
+                        <div class='tooltip'>
+                          {{this.profile.email}}
+                        </div>
+                        <input class="hide" type="tel" matInput type="email" formControlName="email" value="{{this.profile.email}}" readonly="readonly">
+                        <mat-placeholder class="placeholder" style="color: blue">Mail</mat-placeholder>
+
+                      </mat-form-field>
+                      <br>
+                      <br>
+                      <mat-label> <strong>Address: </strong></mat-label><br>
+
+                      <i class="fas fa-map-marked-alt" style="margin-right: 10px; margin-bottom: 2px;"> </i>
+                      <mat-form-field class="example-full-width" style="margin-top: 20px;">
+                        <!-- [readonly]="edit" -->
+                        <input matInput type="text" formControlName="street" value="{{this.profile.street}}">
+
+                        <div style="font-size: 12px;">
+                          <mat-error *ngIf="profileForm.get('street').hasError('required')">
+                            Street should not be empty
+                          </mat-error>
+                          <mat-error *ngIf="profileForm.get('street').hasError('pattern')">
+                            Should not contain any special characters
+                          </mat-error>
+                        </div>
+                        <mat-placeholder class="placeholder" style="color: blue">Street</mat-placeholder>
+                        <mat-icon matSuffix style="margin-left: 0px;">
+                          <span class="edit"><i class="fas fa-pen" style="height: 14px;margin-bottom: 3px;"></i></span>
+                        </mat-icon>
+
+                      </mat-form-field>
+                      <br>
+                      <i style="margin-right: 10px; margin-bottom: 2px;"> </i>
+                      <mat-form-field class="example-full-width" style="padding: 0;margin-left: 18px;">
+
+                        <input matInput type="text" formControlName="city" value="{{this.profile.city}}">
+                        <div style="font-size: 12px;">
+                          <mat-error *ngIf="profileForm.get('city').hasError('required')">
+                            City should not be empty
+                          </mat-error>
+                          <mat-error *ngIf="profileForm.get('city').hasError('pattern')">
+                            should only contain alphabets
+                          </mat-error>
+                        </div>
+                        <mat-placeholder class="placeholder" style="color: blue">City</mat-placeholder>
+                        <mat-icon matSuffix style="margin-left: 0px;"><span class="edit"><i class="fas fa-pen" style="height: 14px;margin-bottom: 3px;"></i></span></mat-icon>
+
+                      </mat-form-field>
+                      <br>
+                      <i style="margin-right: 10px; margin-bottom: 2px;"> </i>
+                      <mat-form-field class="example-full-width" style="margin-left: 18px;">
+                        <!-- value="{{this.profile.state}} -->
+                        <input matInput type="text" formControlName="state">
+                        <div style="font-size: 12px;">
+                          <mat-error *ngIf="profileForm.get('state').hasError('required')">
+                            State should not be empty
+                          </mat-error>
+                          <mat-error *ngIf="profileForm.get('state').hasError('pattern')">
+                            Should not contain any special characters or numbers...
+                          </mat-error>
+                        </div>
+                        <mat-placeholder class="placeholder" style="color: blue">State</mat-placeholder>
+                        <mat-icon matSuffix style="margin-left: 0px;"> <span class="edit"><i class="fas fa-pen" style="height: 14px;margin-bottom: 3px;"></i></span></mat-icon>
+                      </mat-form-field>
+                      <br>
+                      <i style="margin-right: 10px; margin-bottom: 2px;"> </i>
+                      <mat-form-field class="example-full-width" style="margin-left: 18px;">
+                        <input matInput type="text" formControlName="pin" value="{{this.profile.pincode}}">
+                        <div style="font-size: 12px;">
+                          <mat-error *ngIf="profileForm.get('pin').hasError('required')">
+                            pin code should be of 6
+                          </mat-error>
+                          <mat-error *ngIf="profileForm.get('pin').hasError('pattern')">
+                            should contain only numbers
+                          </mat-error>
+                        </div>
+                        <mat-placeholder class="placeholder" style="color: blue">Pin</mat-placeholder>
+
+                        <mat-icon matSuffix style="margin-left: 0px;"> <span class="edit"><i class="fas fa-pen" style="height: 14px;margin-bottom: 3px;"></i></span></mat-icon>
+                      </mat-form-field>
+
+
+                    </div>
+                    <div class="col-sm-1" style="margin: 0;padding: 0">
+                    </div>
+                    <div class="col-sm-5">
+
+                      <i class="fas fa-mobile-alt" style="margin-right: 10px;margin-top:30px; margin-bottom: 1px;  "> </i>
+                      <mat-form-field class="example-full-width" style="padding-top: 35px;">
+                        <!-- <mat-label>Outline form field</mat-label> -->
+                        <!-- pattern="[0-9]{10}"  -->
+                        <input matInput type="tel" id="phone" formControlName="phone" value="{{this.profile.mobileNo}}">
+                        <div style="font-size: 12px;">
+                          <mat-error *ngIf="profileForm.get('phone').hasError('required')">
+                            Phone no should not be empty
+                          </mat-error>
+                          <mat-error *ngIf="profileForm.get('phone').hasError('maxlength')">
+                            Password should be of 10 digits.
+                          </mat-error>
+                          <mat-error *ngIf="profileForm.get('phone').hasError('minlength')">
+                            Password should be of 10 digits.
+                          </mat-error>
+                          <mat-error *ngIf="profileForm.get('phone').hasError('pattern')">
+                            Should only contain numbers
+                          </mat-error>
+                        </div>
+                        <mat-placeholder class="placeholder" style="color: blue">Phone no</mat-placeholder>
+                        <mat-icon matSuffix style="margin-left: 0px;"><span class="edit"><i class="fas fa-pen" style="height: 14px;margin-bottom: 3px;"></i></span></mat-icon>
+
+
+                      </mat-form-field>
+                      <br>
+                      <i class="fas fa-id-card" style="margin-right: 10px; margin-bottom: 1px;"> </i>
+                      <mat-form-field class="example-full-width">
+                        <!-- formControlName="uid" -->
+                        <input matInput type="number" formControlName="usersId" value="{{this.profile.usersId}}" readonly="readonly">
+                        <mat-placeholder class="placeholder" style="color: blue">User ID</mat-placeholder>
+                        <!-- <mat-icon matSuffix style="margin-left: 0px;"><i class="fas fa-pen" style="height: 14px;margin-bottom: 3px;"></i></mat-icon> -->
+                      </mat-form-field>
+
+                      <div *ngIf="check">
+                        <mat-label> <strong>Shop details: </strong></mat-label><br>
+
+
+                        <i class="fas fa-shopping-cart" style="margin-right: 10px; margin-bottom: 2px;"> </i>
+                        <mat-form-field class="example-full-width" style="margin-top: 20px;">
+                          <!-- value="{{this.profile.shopName}}" -->
+                          <input matInput type="text" formControlName="shopName">
+                          <div style="font-size: 12px;">
+                            <mat-error *ngIf="profileForm.get('shopName').hasError('pattern')">
+                              Should be of proper name
+                            </mat-error>
+                          </div>
+                          <mat-placeholder class="placeholder" style="color: blue">Shop Name</mat-placeholder>
+                          <mat-icon matSuffix style="margin-left: 0px;"><span class="edit"><i class="fas fa-pen" style="height: 14px;margin-bottom: 3px;"></i></span></mat-icon>
+                        </mat-form-field>
+                      </div>
+                      <!-- [disabled]="this.profileForm.invalid" -->
+
+                    </div>
+
+                  </div>
+                  <div class="row">
+
+                    <div class="col-sm-8"></div>
+                    <div class="col-sm-4">
+                      <div>
+                        <button mat-raised-button color="warn" type="button" (click)="cancel()">Cancel<span  *ngIf="cancelbool"><i class="fas fa-spinner fa-pulse"></i></span></button>
+                        <!-- <button mat-raised-button class="btn btn-success" [disabled]="!profileForm.invalid" style="float: right;margin-left: 10px;" type="submit">Save</button> -->
+                        <!-- {{profileForm.status}} -->
+                        <!-- <button mat-raised-button color="warn"  type="submit" >Save</button> -->
+                        <button mat-raised-button class="btn btn-success" [disabled]="!profileForm.valid" style="margin-left: 10px ;" type="submit">Save <span  *ngIf="savebool"><i class="fas fa-phone fa-pulse"></i></span></button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </mat-card>
+          </mat-tab>
+          <mat-tab label="Password">
+            <mat-card style="height: 620px;">
+              <div class="container-fluid">
+                <form class="example-form " [formGroup]="profilePasswordForm" (ngSubmit)="submitpassword()">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <mat-label> <strong>Old Password</strong></mat-label><br>
+                      <mat-form-field class="example-full-width" style="margin-left: 15px;">
+                        <!-- placeholder="*********"   -->
+                        <!-- value="ertyuioiuy" -->
+                        <!-- pattern="^[a-z0-9_-]{8,15}$" -->
+                        <input matInput placeholder="Old password" formControlName="oldpassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{8,}$"
+                          [type]="hide1 ? 'text' : 'password'">
+
+                        <mat-hint class="ac-form-field-description" *ngIf="profilePasswordForm.get('oldpassword').invalid">Between 8 and 20 characters.</mat-hint>
+                        <div style="font-size: 12px;">
+                          <!-- <mat-error *ngIf="profilePasswordForm.get('oldpassword').hasError('required')">
+                            Password is mandatory.
+                        </mat-error> -->
+                          <mat-error *ngIf="profilePasswordForm.get('oldpassword').hasError('minlength')">
+                            Password should be more than 8 characters.
+                          </mat-error>
+                          <mat-error *ngIf="profilePasswordForm.get('oldpassword').hasError('maxlength')">
+                            Password should be less than 20 characters.
+                          </mat-error>
+                          <mat-error *ngIf="profilePasswordForm.get('oldpassword').hasError('pattern')">
+                            should contain atleast one Capital,One Number and a Special Character.
+                          </mat-error>
+                        </div>
+                        <mat-icon matSuffix (click)="hide1 = !hide1"><span class="edit"> {{hide1 ? 'visibility_off' : 'visibility'}} </span></mat-icon>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row" style="margin-top: 20px;">
+                    <div class="col-sm-6">
+                      <mat-label> <strong>New Password</strong></mat-label><br>
+                      <mat-form-field class="example-full-width" style="margin-left: 15px;">
+                        <input matInput placeholder="New password" formControlName="newpassword" [type]="hide2 ? 'text' : 'password'">
+                        <mat-icon matSuffix (click)="hide2 = !hide2"> <span class="edit">{{hide2 ? 'visibility_off' : 'visibility'}} </span></mat-icon>
+                        <mat-hint class="ac-form-field-description" *ngIf="profilePasswordForm.get('newpassword').invalid">Between 8 and 20 characters.</mat-hint>
+                        <div style="font-size: 12px;">
+                          <!-- <mat-error *ngIf="profilePasswordForm.get('oldpassword').hasError('required')">
+                          Password is mandatory.
+                      </mat-error> -->
+                          <mat-error *ngIf="profilePasswordForm.get('newpassword').hasError('minlength')">
+                            Password should be more than 8 characters.
+                          </mat-error>
+                          <mat-error *ngIf="profilePasswordForm.get('newpassword').hasError('maxlength')">
+                            Password should be less than 20 characters.
+                          </mat-error>
+                          <mat-error *ngIf="profilePasswordForm.get('newpassword').hasError('pattern')">
+                            should contain atleast one Capital,One Number and a Special Character.
+                          </mat-error>
+                        </div>
+                      </mat-form-field>
+                    </div>
+
+                    <div class="col-sm-6">
+                      <mat-label> <strong></strong></mat-label><br>
+                      <mat-form-field class="example-full-width" style="margin-left: 15px;">
+                        <input matInput placeholder="Confirm password" formControlName="confirmpassword" [type]="hide3 ? 'text' : 'password'">
+                        <mat-icon matSuffix (click)="hide3 = !hide3"><span class="edit">{{hide3 ? 'visibility_off' : 'visibility'}} </span></mat-icon>
+                        <mat-hint class="ac-form-field-description" *ngIf="profilePasswordForm.get('confirmpassword').invalid">
+                          Between 8 and 20 characters.
+                        </mat-hint>
+                        <div style="font-size: 12px;">
+                          <mat-error *ngIf="profilePasswordForm.get('confirmpassword').hasError('minlength')">
+                            Password should be more than 8 characters.
+                          </mat-error>
+                          <mat-error *ngIf="profilePasswordForm.get('confirmpassword').hasError('maxlength')">
+                            Password should be less than 20 characters.
+                          </mat-error>
+                          <mat-error *ngIf="profilePasswordForm.get('confirmpassword').hasError('pattern')">
+                            should contain atleast one Capital,One Number and a Special Character.
+                          </mat-error>
+                        </div>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row"></div>
+                  <div class="row">
+                    <div class="col-sm-8"></div>
+                    <div class="col-sm-4">
+                      <div style="margin-top: 20px;">
+                        <button mat-raised-button color="warn" type="reset">Cancel</button>
+                        <!-- {{profilePasswordForm.status}} -->
+                        <button mat-raised-button class="btn btn-success" type="submit" style="margin-left: 10px ;" [disabled]="profilePasswordForm.invalid">Save <span  *ngIf="savebool"><i class="fas fa-spinner fa-pulse"></i></span></button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </mat-card>
+          </mat-tab>
+
+        </mat-tab-group>
+      </div>
+    </div>
+    <div class="col-sm-2">
+    </div>
+  </div>
+</div>

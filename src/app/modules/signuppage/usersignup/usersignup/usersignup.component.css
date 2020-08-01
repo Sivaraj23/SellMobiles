@@ -1,0 +1,24 @@
+.ngsm-body-login{
+
+    background-image: url('/assets/others/bg.jpg');
+    background-size: cover;
+
+}
+
+.visibility{
+    cursor:pointer;
+}
+/* .mat-card{
+    transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+    display: contents;
+    position: relative;
+    padding: 16px;
+    border-radius: 4px;
+    color:#efefef;
+    text-decoration-color: #efefef;
+    opacity: 1;
+}
+.light{
+    color:white;
+    
+} */

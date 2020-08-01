@@ -1,0 +1,18 @@
+.fa-star {
+    color:rgba(255, 255, 0, 0.71);
+  }
+  .shadow-textarea textarea.form-control::placeholder {
+    font-weight: 300;
+}
+.shadow-textarea textarea.form-control {
+    padding-left: 0.8rem;
+    
+}
+textarea.form-control {
+    width: 50%;
+    margin-top:50px;
+}
+button, html [type=button] {
+    -webkit-appearance: button;
+    margin-top: 10px;
+}
